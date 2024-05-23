@@ -1,11 +1,32 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+
+import EditarCategorie from '../components/categories/EditarCategorie.vue';
+import NewCategorie from '../components/categories/NewCategorie.vue';
 import HomeView from '../views/HomeView.vue'
+import Categories from '../views/Categories';
 
 const routes = [
   {
     path: '/',
     name: 'home',
     component: HomeView
+  },
+  {
+    path: '/categories',
+    name: 'Categories',
+    component: Categories
+  },
+
+  {
+    path: '/editar-categorie/id',
+    name: 'EditarCategorie',
+    component : EditarCategorie
+  },
+
+  {
+    path: '/add-categorie/',
+    name: 'NewCategorie',
+    component: NewCategorie
   },
   {
     path: '/about',
