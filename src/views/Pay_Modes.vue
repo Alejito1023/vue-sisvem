@@ -1,7 +1,7 @@
 <template>
     <div class="container">
-        <h1 class="text-star"> Listado de Productos
-    <button @click="newProduct()"
+        <h1 class="text-star"> Listado Metodos de Pago
+    <button @click="newPayMode()"
     class="btn btn-success mx-2">
     <font-awesome-icon icon="plus" />
 </button>
@@ -12,26 +12,21 @@
                 <th scope="col">#</th>
                 <th scope="col">Codigo</th>
                 <th scope="col">Nombre</th>
-                <th scope="col">Price</th>
-                <th scope="col">Stock</th>
-                <th scope="col">Categoria Id</th>
-
+                <th scope="col">Observacion</th>
             </tr>
         </thead>
         <tbody>
-            <tr v-for="(product,index) in products" :key="index">
+            <tr v-for="(pay_mode,index) in pay_modes" :key="index">
                 <th scope="row">{{ index+1 }}</th>
-                <td>{{ product.product_id }}</td>
-                <td>{{ product.nombre }}</td>
-                <td>{{ product.price }}</td>
-                <td>{{ product.stock }}</td>
-                <td>{{ product.cate_id }}</td>
+                <td>{{ pay_mode.id }}</td>
+                <td>{{ pay_mode.name }}</td>
+                <td>{{ pay_mode.observation }}</td>
                 <td>
-                    <button @click="deleteProduct(product.product_id)"
+                    <button @click="deletePayMode(pay_mode.id)"
                     class="btn btn-danger mx-2">
                     <font-awesome-icon icon="trash" />
                 </button>
-                <button @click="editProduct(product.product_id)"
+                <button @click="editPayMode(pay_mode.id)"
                 class="btn btn-warning mx-2">
                 <font-awesome-icon icon="pencil" />
                 </button>
@@ -48,25 +43,25 @@
     
     export default {
     
-        name: 'Product',
+        name: 'PayMode',
         data(){
             return{
-                products: []
+                pay_modes: []
             }
         },
         methods:{
-            deleteProduct(codigo){
+            deletePayMode(codigo){
                 Swal.fire({
-                    title:`Do you want to delete the product with id ${codigo}?`,
+                    title:`Do you want to delete the paymode with id ${codigo}?`,
                     showCancelButton: true,
                     confirmButtonText:'Delete',                              
                 }).then((result) =>{
                     if (result.isConfirmed) {
-                       axios.delete(`http://127.0.0.1:8000/api/products/${codigo}`)
+                       axios.delete(`http://127.0.0.1:8000/api/pay_modes/${codigo}`)
                        .then(response => {
                         if (respone.data.success) {
                             Swal.fire('Deleted!! ', '', 'success')
-                            this.products = response.data.products
+                            this.pay_modes = response.data.pay_modes
                         }
                        }) 
                     }
@@ -74,19 +69,19 @@
             },
         
     
-        editProduct(id){
-            this.$router.push({name:'EditarProduct', params:{id: `${id}` }})
+        editPayMode(id){
+            this.$router.push({name:'EditarPayMode', params:{id: `${id}` }})
     
         },
-        newProduct(){
-            this.$router.push({name:`NewProduct`});
+        newPayMode(){
+            this.$router.push({name:`NewPayMode`});
     
         }
     },
         mounted(){
             axios
-                 .get('http://127.0.0.1:8000/api/products')
-                 .then(response =>(this.products = response.data.products))
+                 .get('http://127.0.0.1:8000/api/pay_modes')
+                 .then(response =>(this.pay_modes = response.data.pay_modes))
         },
     
     }

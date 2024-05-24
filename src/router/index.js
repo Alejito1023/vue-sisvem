@@ -2,8 +2,16 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import EditarCategorie from '../components/categories/EditarCategorie.vue';
 import NewCategorie from '../components/categories/NewCategorie.vue';
+import EditarProduct from '../components/products/EditarProduct';
+import NewProduct from '../components/products/NewProduct.vue';
+import EditarPayMode from '../components/pay_modes/EditarPayMode.vue';
+import NewPayMode from '../components/pay_modes/NewPayMode.vue';
 import HomeView from '../views/HomeView.vue'
 import Categories from '../views/Categories';
+import Products from '../views/Products.vue';
+import Pay_Modes from '../views/Pay_Modes.vue';
+
+
 
 const routes = [
   {
@@ -31,7 +39,7 @@ const routes = [
   {
     path: '/products',
     name: 'Products',
-    component: Categories
+    component: Products
   },
 
   {
@@ -43,7 +51,24 @@ const routes = [
   {
     path: '/add-product/',
     name: 'NewProduct',
-    component: NewCategorie
+    component: NewProduct
+  },
+
+  {
+    path: '/pay_modes',
+    name: 'PayModes',
+    component: Pay_Modes
+  },
+  {
+    path: '/editar-pay_mode/id',
+    name: 'EditarPayMode',
+    component : EditarPayMode
+  },
+
+  {
+    path: '/add-pay_mode/',
+    name: 'NewPayMode',
+    component: NewPayMode
   },
   {
     path: '/about',

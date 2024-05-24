@@ -1,6 +1,11 @@
 <template>
 <div class="container">
-   <h1> Listado de Categorias</h1>
+   <h1 class="text-star"> Listado de Categorias
+    <button @click="newCategorie()"
+    class="btn btn-success mx-2">
+    <font-awesome-icon icon="plus" />
+</button>
+   </h1>
    <table class="table">
     <thead>
         <tr>
