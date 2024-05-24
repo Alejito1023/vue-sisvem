@@ -5,6 +5,7 @@
     <router-link to="/categories">Categories</router-link> |
     <router-link to="/products">Products</router-link> |
     <router-link to="/pay_modes">Pay_Modes</router-link> |
+    <router-link to="/customers">Cliente</router-link> |
   </div>
   <router-view/>
 </template>
