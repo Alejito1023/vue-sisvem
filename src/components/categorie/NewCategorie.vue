@@ -67,7 +67,7 @@ export default {
 
         },
         products: [],
-        product_id: "0";
+        product_id: "0"
     }
 },
 
@@ -94,7 +94,7 @@ methods:{
 },
 mounted(){
 
-axios.get(`http://127.0.0.1:8000/api/municipios/`)
+axios.get(`http://127.0.0.1:8000/api/categories/`)
      .then(response => {
         
         this.products = response.data.products

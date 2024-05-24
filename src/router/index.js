@@ -29,6 +29,23 @@ const routes = [
     component: NewCategorie
   },
   {
+    path: '/products',
+    name: 'Products',
+    component: Categories
+  },
+
+  {
+    path: '/editar-product/id',
+    name: 'EditarProduct',
+    component : EditarProduct
+  },
+
+  {
+    path: '/add-product/',
+    name: 'NewProduct',
+    component: NewCategorie
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
